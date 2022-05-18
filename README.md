@@ -1,7 +1,7 @@
 # Aplikacja-internetowa-projekt
 
 
-##Strona tytułowa
+## Strona tytułowa
 
   1.) Okno rejestracji/Logowania
   2.) Po zalogowaniu użytkownik zostaje przeniesiony do pierwszego ekranu aplikacji
