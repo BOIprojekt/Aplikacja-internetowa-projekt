@@ -1,16 +1,24 @@
-# Aplikacja-internetowa-projekt
+# vuea
 
+## Project setup
+```
+npm install
+```
 
-## Strona tytułowa
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-  1.) Okno rejestracji/Logowania
-  2.) Po zalogowaniu użytkownik zostaje przeniesiony do pierwszego ekranu aplikacji
- 
-## Ekran główny podzielony na 3 zakładki
-  ### Zakładka pierwsza - panel użytkownika
-  1.)Profil użytkownika zawierający podstawowe informacje jak nazwa użytkownika, a także jego podstawowe parametry (Masa ciała, wiek, obwody itp)
-  ### Zakładka druga - Wprowadzanie pomiarów
-  1.) Zakładka umożliwiająca zakutalizowanie parametrów użytkownika
-  2.) Po wprowadzeniu nowych pomiarów użytkownik otrzymuje wykres zmian parametrów na przetstrzeni ostatnich 3 miesiący
-  ### Statystyki ogólne
-  1.) Zakładka zawierająca szereg statystyk użytkownika na tle pozostałych użytkowników z bazy danych oraz ocenę sylwetki.
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
