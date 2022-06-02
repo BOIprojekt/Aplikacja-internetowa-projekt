@@ -1,15 +1,15 @@
 <template>
     <h1>Stwórz konto</h1>
-    <p><input size="50" type="text" placeholder="Email" v-model="email" /></p>
-    <p><input size="50" type="password" placeholder="Hasło" v-model="password" /></p>
-    <p v-if="errMsg">{{ errMsg }}</p>
+    <p><input size="50" type="text" placeholder="Email" v-model="register_email" /></p>
+    <p><input size="50" type="password" placeholder="Hasło" v-model="register_password" /></p>
+    <p v-if="errMsg1">{{ errMsg1 }}</p>
     <p><button @click="register">Zatwierdź</button></p>
     <p><button @click="SignInWithGoogle">Zaloguj się z Google</button></p>
 
     <h1>Zaloguj się</h1>
     <p><input size="50" type="text" placeholder="Email" v-model="login_email" /></p>
     <p><input size="50" type="password" placeholder="Hasło" v-model="login_password" /></p>
-    <p v-if="errMsg">{{ errMsg }}</p>
+    <p v-if="errMsg2">{{ errMsg2 }}</p>
     <p><button @click="login">Zatwierdź</button></p>
     <p><button @click="SignInWithGoogle">Zaloguj się z Google</button></p>
 </template>
@@ -20,18 +20,19 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} fr
 import { useRouter } from "vue-router";
 import { reactive } from 'vue';
 //import { useStore } from 'vuex';
-const email = ref("");
-const password = ref("");
+const register_email = ref("");
+const register_password = ref("");
 const login_email = ref("");
 const login_password = ref("");
-const errMsg = ref();
+const errMsg1 = ref();
+const errMsg2 = ref();
 const router = useRouter();
 
 
 
 
 const register = () => {
-    (createUserWithEmailAndPassword(getAuth(), email.value, password.value))
+    reactive(createUserWithEmailAndPassword(getAuth(), register_email.value, register_password.value))
         .then((data) => {
             console.log("Successfully registered!");
             router.push('/profil')
@@ -40,16 +41,16 @@ const register = () => {
             console.log(error.code);
             switch (error.code) {
               case "auth/invalid-email":
-                errMsg.value = "Niewłaściwy email";
+                errMsg1.value = "Niewłaściwy email";
                 break;
               case "auth/email-already-in-use":
-                errMsg.value = "Konto z takim adresem email już istnieje";
+                errMsg1.value = "Konto z takim adresem email już istnieje";
                 break;
               case "auth/weak-password":
-                errMsg.value = "Słabe hasło";
+                errMsg1.value = "Słabe hasło";
                 break;
               default:
-                errMsg.value = "Email lub hasło są niepoprawne";
+                errMsg1.value = "Email lub hasło są niepoprawne";
                 break;
             }
         });
@@ -67,16 +68,16 @@ const login = () => {
             console.log(error.code);
             switch (error.code) {
               case "auth/invalid-email":
-                errMsg.value = "Niewłaściwy email";
+                errMsg2.value = "Niewłaściwy email";
                 break;
               case "auth/user-not-found":
-                errMsg.value = "Konto z takim emailem nie zostało znalezione";
+                errMsg2.value = "Konto z takim emailem nie zostało znalezione";
                 break;
               case "auth/wrong-password":
-                errMsg.value = "Niepoprawne hasło";
+                errMsg2.value = "Niepoprawne hasło";
                 break;
               default:
-                errMsg.value = "Email lub password są niepoprawne";
+                errMsg2.value = "Email lub password są niepoprawne";
                 break;
             }
         });
