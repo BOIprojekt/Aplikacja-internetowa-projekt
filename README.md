@@ -11,3 +11,4 @@ Zakładka druga - Wprowadzanie pomiarów
 
 Statystyki ogólne
 1.) Zakładka zawierająca szereg statystyk użytkownika na tle pozostałych użytkowników z bazy danych oraz ocenę sylwetki.
+
