@@ -1,10 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 
-import { initializeApp } from "firebase/app";
+//import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -17,7 +20,11 @@ const firebaseConfig = {
   measurementId: "G-C5N0EJ3B9N"
 };
 
-initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export { auth, db };
 //const analytics = getAnalytics(app);
 
 createApp(App).use(store).use(router).mount('#app')
