@@ -21,9 +21,9 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
-const profilesColRef = collection(db, 'profiles');
+const measuresColRef = collection(db, 'measures');
 
 export { auth, db, };
-export default profilesColRef;
+export default measuresColRef;
 
 createApp(App).use(router).mount('#app')

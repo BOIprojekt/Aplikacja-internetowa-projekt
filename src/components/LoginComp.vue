@@ -1,10 +1,16 @@
 <template>
-    <h1>Zaloguj się</h1>
-    <p><input size="50" type="text" placeholder="Email" v-model="login_email" /></p>
-    <p><input size="50" type="password" placeholder="Hasło" v-model="login_password" /></p>
-    <p v-if="errMsg2">{{ errMsg2 }}</p>
-    <p><button @click="login">Zatwierdź</button></p>
-    <p><button @click="SignInWithGoogle">Zaloguj się z Google</button></p>
+  <main class = "login">
+    <section class="forms">
+      <div class="login">
+        <h2>Zaloguj się</h2>
+        <p><input size="50" type="text" placeholder="Email" v-model="login_email" /></p>
+        <p><input size="50" type="password" placeholder="Hasło" v-model="login_password" /></p>
+        <p v-if="errMsg2">{{ errMsg2 }}</p>
+        <p><button @click="login">Zatwierdź</button></p>
+        <p><button @click="SignInWithGoogle">Zaloguj się z Google</button></p>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script setup>

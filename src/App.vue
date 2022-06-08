@@ -1,10 +1,14 @@
 <template>
   <div class = "nav">
-    <router-link to="/" v-if="!isLoggedIn">Rejestracja </router-link>
-    <router-link to="/profil" v-if="isLoggedIn">Profil użytkownika </router-link>
-    <router-link to="/dimensions" v-if="isLoggedIn">Wymiary </router-link>
-    <router-link to="/stats" v-if="isLoggedIn">Statystyki </router-link>
-    <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
+    <div class = "reg">
+      <router-link to="/" v-if="!isLoggedIn">Rejestracja </router-link>
+    </div>
+    <div class = "topnav">
+     <router-link to="/profil" v-if="isLoggedIn">Profil użytkownika </router-link>
+     <router-link to="/dimensions" v-if="isLoggedIn">Wymiary </router-link>
+     <router-link to="/stats" v-if="isLoggedIn">Statystyki </router-link>
+     <button @click="handleSignOut" v-if="isLoggedIn">Wyloguj</button>
+     </div>
   </div>
   <router-view/>
 </template>
@@ -33,7 +37,6 @@ const handleSignOut = () => {
     router.push("/");
   });
 };
-
 </script>
 
 <style>
@@ -41,12 +44,24 @@ const handleSignOut = () => {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   text-align: center;
-  color: #2c3e50;
+  max-width:100%;
+  box-sizing:border-box;
+  color: #FFF;
+	background-color: rgb(46, 209, 245);
+	background-image: linear-gradient(
+		to bottom right,
+		rgb(46, 209, 245) 0%,
+		rgb(7, 126, 134) 75%
+	);
 }
 
-nav {
-  padding: 30px;
+.reg {
+  visibility: hidden;
 }
 
 nav a {

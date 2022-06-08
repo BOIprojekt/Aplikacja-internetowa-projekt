@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DimView from '../views/DimView.vue'
-// import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const routes = [
   {
@@ -31,6 +30,14 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/profiles/:profilId',
+    name: 'profiles',
+    component: () => import('../components/ProfilEdit.vue'),
+    meta: {
+      requiresAuth: true
+    }
   }
 ]
 
@@ -38,38 +45,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
-/* const auth = getAuth();
-
-const getCurrentUser = () => {
-  return new Promise((resolve, reject) => {
-      const removeListener = onAuthStateChanged(
-        auth,
-        (user) => {
-          removeListener();
-          resolve(user);
-        },
-        reject
-      ); 
-  });
-}; 
-
- router.beforeEach(async(to, from, next) => {
-   if (to.path === '/' && auth.currentUser) {
-    next ('/')
-    return;
-   }
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (await getCurrentUser()) {
-    next("/")
-  } else {
-    alert("Nie posiadasz dostępu!");
-    next("/");
-   }
-  } else {
-  next();
-}
-}); */
 
 
 
